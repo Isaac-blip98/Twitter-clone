@@ -39,7 +39,6 @@ async function fetchUser(userId: number) {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/users/${userId}`
   );
-  // console.log(`users fetched`, response);
   return await response.json();
 }
 
@@ -87,16 +86,27 @@ async function displayPosts(posts: Post[], userId: number) {
     const div = document.createElement("div");
     div.classList.add("post");
     div.innerHTML = `
-        <div class="image">
-            <img src="../images/profile.png" alt="profile-image">
-        </div>
-        <div>
-            <div class="details">
-                <p>${user.name}</p>
-                ${post.body}
-            </div>
-        </div>
-        `;
+  <div class="image">
+    <img src="../images/profile.png" alt="profile-image" />
+  </div>
+  <div>
+    <div class="details">
+      <div class="details-info">
+        <span class="username">${user.name}</span>
+        <img class="icon" src="../images/verify.png" alt="verified" />
+        <img class="icon" src="../images/twitter-icon.png" alt="twitter" />
+      </div>
+    
+      <p class="post-body">
+        ${post.body}
+      </p>
+    </div>
+    <div class="pics">
+      <span><img class="icon-small" src="../images/message.png" />200</span>
+      <span><img class="icon-small" src="../images/retweet.png" />200</span>
+      <span><img class="icon-small" src="../images/heart.png" />200</span>
+    </div>
+  </div>        `;
     div.onclick = () => loadComments(post.id);
     postContainer.appendChild(div);
   });
@@ -109,15 +119,24 @@ async function showComments(comments: Comment[], postId: number) {
     const div = document.createElement("div");
     div.classList.add("comment");
     div.innerHTML = `
-    <div>
-        <div class="coment-content">
-            <div class="image">
-                <img src="../images/profile.png" alt="profile-image">
-            </div>
-            ${comment.name}
-             ${comment.body}
-        </div>
+ <div class="image">
+    <img src="../images/profile.png" alt="profile-image" />
+  </div>
+  <div>
+    <div class="details">
+      <div class="details-info">
+        <span class="username">${comment.name}</span>
+      </div>
+      <p class="comment-body">
+        ${comment.body}
+      </p>
     </div>
+    <div class="pics">
+      <span><img class="icon-small" src="../images/message.png" />200</span>
+      <span><img class="icon-small" src="../images/retweet.png" />200</span>
+      <span><img class="icon-small" src="../images/heart.png" />200</span>
+    </div>
+  </div> 
     `;
     commentsContainer.appendChild(div);
   });
