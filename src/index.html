@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Twitter Clone</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <p>Twitter Clone</p>
+      <div class="search">
+        <span>search</span>
+        <select id="userSelect"></select>
+      </div>
+    </header>
+    <div class="img">
+      <img src="/images/background.jpg" alt="bg-img" />
+    </div>
+    <main>
+      <img
+        class="profile-image"
+        src="../images/profile.png"
+        alt="profile-image"/>
+
+      <div class="name" id="profile-name"></div>
+      <div class="username" id="username"></div>
+      <div class="web" id="web"></div>
+      <div class="details" id="catch-phrase"></div>
+      <div class="address" id="address"></div>
+      
+      <div class="container">
+        <div id="postContainer"></div>
+        <div id="commentsContainer">
+          <div id="commentsHeader"></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../dist/index.js"></script>
+  </body>
+</html>
